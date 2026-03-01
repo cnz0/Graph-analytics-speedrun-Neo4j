@@ -119,16 +119,16 @@ APOC procedures were used for:
 (See apoc/apoc-calls.cypher)
 
 ### Project Structure ###
-neo4j/\br
-|\br
-|-- apoc/\br
-|-- etl/\br
-|-- import/\br
-|-- modeling/\br
-|-- pre-import/\br
-|-- queries/\br
-|-- spatial/\br
-|-- README.md\br
+neo4j/<br>
+|<br>
+|-- apoc/<br>
+|-- etl/<br>
+|-- import/<br>
+|-- modeling/<br>
+|-- pre-import/<br>
+|-- queries/<br>
+|-- spatial/<br>
+|-- README.md<br>
 
 ### Key Takeaways ###
 - Designing graph schemas aligned with traversal patterns
