@@ -54,7 +54,7 @@ CREATE INDEX run_id IF NOT EXISTS FOR (r:Run) ON (r.id);
 CREATE INDEX player_id IF NOT EXISTS FOR (p:Player) ON (p.id);
 ```
 
-This ensures MERGE operations use NodeIndexSeek instead of NodeByLabelScan.\br
+This ensures MERGE operations use NodeIndexSeek instead of NodeByLabelScan.<br>
 Large CSV files are processed using batched transactions:
 ```
 :auto
@@ -64,18 +64,18 @@ CALL {
   MERGE (...)
 } IN TRANSACTIONS OF 1000 ROWS;
 ```
-This approach prevents memory pressure and enables scalable ingestion of multi-million-row datasets.\br
+This approach prevents memory pressure and enables scalable ingestion of multi-million-row datasets.<br>
 (See pre-import/indexes.cypher and import/imports.cypher)
 
 ### Cross-Dataset Enrichment ###
-Steam metadata is imported and linked to existing Game nodes via HAS_STEAM_DATA.\br
+Steam metadata is imported and linked to existing Game nodes via HAS_STEAM_DATA.<br>
 Market segments are assigned using rule-based classification over Steam properties:
 - FreeToPlay
 - Indie
 - AAA
 - EarlyAccess
 
-Games inherit segment relationships (TARGETS_SEGMENT) for faster analytical traversal.\br
+Games inherit segment relationships (TARGETS_SEGMENT) for faster analytical traversal.<br>
 (See modeling/own_nodes.cypher)
 
 ### Analytical Queries ###
@@ -85,7 +85,7 @@ The project includes multi-hop analytical queries such as:
 - Steam vs non-Steam game comparison
 - Player activity ranking
 - Market segmentation per game
-All analytical entry points rely on indexed properties.\br
+All analytical entry points rely on indexed properties.<br>
 (See queries/queries.cypher)
 
 ### Modeling Decisions ###
@@ -101,7 +101,7 @@ Countries are modeled as spatial nodes using Neo4j point():
 ```
 SET c.location = point({latitude: ..., longitude: ...});
 ```
-This enables geographic extensions and potential distance-based queries.\br
+This enables geographic extensions and potential distance-based queries.<br>
 (See spatial/geographical-data.cypher)
 
 ### ETL Preprocessing (Python) ###
